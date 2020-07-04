@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 一、css sprite（精灵图）优缺点 -->
+  <!-- 1.使用：
+          1.1将需要的图片宽高测量出来，设置为要显示的宽高
+          1.2然后将精灵图移动位置，使用background：url（引入图片）-180px -50px
+             解析：使用background-position：-180px -50px 测量出来的位置，整个图片向左向上移动的为负值 -->
+  <!-- 2.优点：
+          1.减少http的请求
+          2.减少图片体积
+          3.解决了网页设计师在图片命名上的困扰
+          4.更换风格方便，只需要修改一张图片，维护起来比较方便 -->
+  <!-- 3.缺点：
+          1.在开发的时候比较麻烦，要通过Photoshop或其他工具测量每一个背景单元的精确位置
+          2.在维护的时候比较麻烦，如果背景有少许的改动，一般整个图片也要改
+          3.精灵图不能随便改变大小和颜色。改变大小会失真模糊，降低用户体验 -->
+
+
+  <!-- 二、display：none和visibility：hidden区别 -->
+  <!-- 1.display：none会让元素完全从渲染数中消失，不占位置；visibility：hidden不会让元素从渲染树消失，占位置-->
+  <!-- 2.display：none是非继承属性，子孙节点消失是由于元素从渲染树消失；visibility：hidden是继承属性，子孙节点
+         消失是由于继承了hidden，通过设置visibility：visible，可以让子孙节点显示 -->
+
+
+  <!-- 三、link和@import区别 -->
+  <!-- 1.link是html标签，@import是css提供得一种方式 -->
+  <!-- 2.@import是css2.1提出的老式浏览器不支持，IE5以上的支持，而link没有兼容问题 -->
+  <!-- 3.当一个页面加载时，link引用的css也会被加载，而@import等到页面全部下载完后被加载 -->
+  <!-- 4.控制样式差别：@import不是DOM可控制的 -->
+
+
+  <!-- 四、清除浮动的方法 -->
+  <!-- 1.隔墙法：给结尾处加一个空的div标签，clear：both -->
+  <!-- 2.给父元素添加高度，然后撑开盒子 -->
+  <!-- 3.伪元素法：.clearfix:after{content:"";diapaly:block;visbility:hidden;height:0;line-height:0;clear:both;} .clearfix{zoom:1}-->
+  <!-- 4.双伪元素法:.clearfix:before,.clearfix:after{content:"";diaplay:block;clear:both;} .clearfix{zoom:1;} -->
+  <!-- 5.给父元素div定义overflow：hidden -->
+
+
+  <!-- 五、css3的新特性 -->
+  <!-- 1.text-shadow文字阴影，box-shadow盒子阴影 -->
+  <!-- 2.border-radius圆角边框 -->
+  <!-- 3.多栏布局 -->
+  <!-- 4.rgba -->
+  <!-- 5.transform：transla，scale，rotate -->
+  <!-- 6.伪元素:selection -->
+  <!-- 7.盒子模型：box-sizing -->
+  <!-- 8.背景background-size -->
+  <!-- 9.过渡transition -->
+
+
+  <!-- 六、css新增伪类 -->
+  <!-- 1.p:nth-child(2)选择其父元素的子元素的第二个p标签 -->
+  <!-- 2.p:first-of-type选择其父元素的第一个子元素 -->
+  <!-- 3.p:last-of-type选择其父元素的最后一个子元素 -->
+  <!-- 4.:after 在元素之前添加内容,也可以用来做清除浮动。
+         :before 在元素之后添加内容。
+         :enabled 已启用的表单元素。
+         :disabled 已禁用的表单元素。
+         :checked 单选框或复选框被选中。 -->
+
+
+  <!-- 七、display有哪些值及其作用 -->
+  <!-- 1.none：设置元素不可见 -->
+  <!-- 2.block：设置元素为块级元素，元素可见 -->
+  <!-- 3.inline：设置元素为行内元素 -->
+  <!-- 4.inline-block：设置元素为行内块 -->
+  <!-- 5.table：此元素会作为块级表格来显示 -->
+  <!-- 6.inherit：应该从父元素继承display的属性值 -->
+  <!-- 7.list-item： 像块类型元素一样显示，并添加样式列表标记 -->
+
+
+  <!-- 八、盒模型，IE的盒模型有什么区别 -->
+  <!-- 1.盒模型：内容(content)、内边距(padding)、边框(border)、外边距(margin) -->
+  <!-- 2.IE盒模型：IE的content包括border和padding -->
+
+
+  <!-- 九、css的优先级 -->
+  <!-- 通配符选择器(*)<标签选择器<类选择器<ID选择器<行内样式<!important -->
+
+
+  <!-- 十、position的值 -->
+  <!-- 1.static：静态定位，没有定位，元素出现在正常流中 -->
+  <!-- 2.relative：相对定位，相对于正常位置进行定位 -->
+  <!-- 3.absolute：绝对定位，相对于static 定位以外的第一个父元素进行定位 -->
+  <!-- 4.fixed：固定定位，相对于浏览器窗口进行定位 -->
+  <!-- 5.sticky:粘性定位，相对于浏览器窗口定位 -->
+
+
+  <!-- 十一、display：inline-block什么时候不会显示间隙 -->
+  <!-- 1.移除空格 -->
+  <!-- 2.使用margin负值 -->
+  <!-- 3.使用font-size：0 -->
+  <!-- 4.letter-spacing，word-spacing -->
+
+
+  <!-- 十二、::before 和 :after中双冒号和单冒号 有什么区别 -->
+  <!-- ::是伪元素，：是伪类 -->
+
+
+  <!-- 十三、如果需要手动写动画，你认为最小时间间隔是多久，为什么？ -->
+  <!-- 多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60*1000ms ＝ 16.7ms -->
+
+
+  <!-- 十四、css3动画 -->
+  <!-- css3提出的3个属性：transition，transfor，animation -->
+  <!-- 1.transition属性值：
+          1.1 transition-property：用来指定那个属性有过渡动画效果
+          1.2 transition-duration：动画完成时间
+          1.3 transition-timing-function:动画的速度类型：ease(从快到慢) linear(匀速)
+          1.4 transition-delay:2s:设置动画延时效果 -->
+  <!-- 2.transform：translate(移动)、rotate(旋转)、scale(缩放) -->
+  <!-- 3.animation：
+          3.1 animation-name：名称
+          3.2 animation-duration：动画完成时间
+          3.3 animation-iteration-count：动画次数，默认为1次，infinite无限次
+          3.4 animation-direction：设置来回都有动画效果，alternate
+          3.5 animation-timing-function：动画速度类型，linear(匀速)、ease(从快到慢)、ease-in(由慢到快)、ease-out(由块到慢)
+          3.6 animation-delay：延时时间
+          3.7 animation-fill-made：forwords；鼠标放在动画上显示停止效果
+          3.8 animation-play-state：paused：暂停 -->
+
+
+  <!-- 十五、rgba和opacity的透明效果有什么区别 -->
+  <!-- opacity作用于元素以及元素内的所有内容的透明度，rgba只作用于元素的颜色和背景色 -->
+
+
+  <!-- 十六、如何垂直居中一个<img>? -->
+  <!-- #container     /**<img>的容器设置如下**/
+      {
+          display:table-cell;
+          text-align:center;
+          vertical-align:middle;
+      } -->
+
+
+  <!-- 十七、css有个content属性及其作用 -->
+  <!-- css的content属性专门应用在 before/after伪元素上，用于来插入生成内容。 -->
+
+
+  <!-- 十八、如何实现小于12px的字体效果 -->
+  <!-- transform:scale(0.5)这个属性只可以缩放可以定义宽高的元素，
+       而行内元素是没有宽高的，我们可以加上一个display:inline-block; -->
+
+
+  <!-- 十九、实现盒子上下左右居中 -->
+  <!-- 1.relative，absolute，margin：auto，left right top bottom为0 -->
+  <!-- 2.relative，absolute，left top：50%，transform：translate(-50%,-50%) -->
+  <!-- 3.display:flex,justify-content:ceter,align-item:center -->
+  <!-- 4.relative，absolute，left top：50%，负margin-left margin-top -->
+
+
+
+
+</body>
+</html>
